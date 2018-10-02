@@ -2,6 +2,7 @@ package com.example.farahreza.demo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,8 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.ProviderQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,12 +48,11 @@ public class PatientEditInfo extends AppCompatActivity {
 
        Name1 = findViewById(R.id.Name);
         Email = findViewById(R.id.SignupEmail);
-        Pass = findViewById(R.id.signupPass);
-        RePass = findViewById(R.id.pass);
+
         Phone = findViewById(R.id.signupPhoneNumber);
         btn = findViewById(R.id.SaveButton);
         mAuth = FirebaseAuth.getInstance();
-        OldPass=findViewById(R.id.oldpass);
+
         progressDialog = new ProgressDialog(this);
         Place1=null;
 
@@ -66,6 +71,9 @@ public class PatientEditInfo extends AppCompatActivity {
                 email = user.getEmail();
                 pass = user.getPassword();
                 phone = user.getPassword();
+                Name1.setHint(name);
+                Email.setHint(email);
+                Phone.setHint(phone);
 
 
 
@@ -77,49 +85,20 @@ public class PatientEditInfo extends AppCompatActivity {
             }
         });
 
-       Name1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        Name1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Name1.setHint(name);
+                    Name1.setHint(null);
                 }
             }
         });
-
 
         Email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Email.setHint(email);
-                }
-            }
-        });
-
-        OldPass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    OldPass.setHint("Enter Old Password");
-                }
-            }
-        });
-
-        Pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Pass.setHint("Enter New Password");
-                }
-            }
-        });
-
-
-        RePass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    RePass.setHint("Re-Enter New Password");
+                    Email.setHint(null);
                 }
             }
         });
@@ -128,10 +107,13 @@ public class PatientEditInfo extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Phone.setHint(user.getPhone());
+                    Phone.setHint(null);
                 }
             }
         });
+
+
+
 
 
 
@@ -155,42 +137,71 @@ public class PatientEditInfo extends AppCompatActivity {
         email1=Email.getText().toString().trim();
         name1=Name1.getText().toString();
         phone1=Phone.getText().toString();
-        oldpass=OldPass.getText().toString();
-        pass1=Pass.getText().toString().trim();
-        repass1=RePass.getText().toString().trim();
+
 
         if(!email1.isEmpty())
         {
-            email=email1;
+
+            AuthCredential credential= EmailAuthProvider.getCredential(mAuth.getCurrentUser().getEmail(),pass);
+
+            mAuth.getCurrentUser().reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful())
+                    {
+                        //Toast.makeText(getApplicationContext(), "ReAuthenticated Successfully", Toast.LENGTH_LONG).show();
+                        mAuth.fetchProvidersForEmail(email1).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                                if(task.isSuccessful()) {
+                                    try{
+                                        if (task.getResult().getProviders().size() == 1) {
+                                            Toast.makeText(getApplicationContext(), "Email already in use.Please enter Another one", Toast.LENGTH_LONG).show();
+
+                                        } else if (task.getResult().getProviders().size() == 0) {
+                                            email = email1;
+                                            Toast.makeText(getApplicationContext(), "Email Updated", Toast.LENGTH_LONG).show();
+
+                                            mAuth.getCurrentUser().updateEmail(email)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                //Toast.makeText(getApplicationContext(), "Email Updated", Toast.LENGTH_LONG).show();
+                                                            }
+                                                        }
+                                                    });
+
+                                        }
+                                    }catch (NullPointerException e)
+                                    {
+                                        Toast.makeText(getApplicationContext(), " "+e.getMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Failed to ReAuthenticate", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            });
         }
         if(!name1.isEmpty())
         {
             name=name1;
+            Toast.makeText(getApplicationContext(),"Name Updated",Toast.LENGTH_SHORT).show();
+
         }
         if(!phone1.isEmpty())
         {
             phone=phone1;
+            Toast.makeText(getApplicationContext(),"Phone number Updated",Toast.LENGTH_SHORT).show();
         }
 
-        if(!oldpass.isEmpty()) {
-            if(oldpass.equals(pass)) {
-                if (!pass1.isEmpty()) {
-                    if (!repass1.isEmpty()) {
-                        if (!pass1.equals(repass1)) {
-                            Toast.makeText(getBaseContext(), "Passwords doesnt Match", Toast.LENGTH_SHORT).show();
-                        } else {
-                            pass = pass1;
-                        }
-                    } else {
-                        Toast.makeText(getBaseContext(), "Please Re-enter Password", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-            else
-            {
-                Toast.makeText(getBaseContext(), "Incorrect Password", Toast.LENGTH_SHORT).show();
-            }
-        }
+
         FirebaseUser user = mAuth.getCurrentUser();
         
         String userid=user.getUid();
@@ -202,10 +213,6 @@ public class PatientEditInfo extends AppCompatActivity {
 
 
 
-        Intent c=new Intent(getApplicationContext(),PatientServices.class);
-        Toast.makeText(getBaseContext(),"Info Saved",Toast.LENGTH_SHORT).show();
-        progressDialog.dismiss();
-        startActivity(c);
 
 
     }

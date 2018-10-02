@@ -20,9 +20,13 @@ import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.ProviderQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,12 +53,11 @@ public class EditInfo extends AppCompatActivity {
         setContentView(R.layout.activity_edit_info);
         Name = findViewById(R.id.SignupName);
         Email = findViewById(R.id.SignupEmail);
-        Pass = findViewById(R.id.signupPass);
-        RePass = findViewById(R.id.pass);
+
         Phone = findViewById(R.id.signupPhoneNumber);
         btn = findViewById(R.id.SaveButton);
         mAuth = FirebaseAuth.getInstance();
-        OldPass=findViewById(R.id.oldpass);
+
         progressDialog = new ProgressDialog(this);
         Place1=null;
 
@@ -76,11 +79,19 @@ public class EditInfo extends AppCompatActivity {
                 name = user.getName();
                 email = user.getEmail();
                 pass = user.getPassword();
-                phone = user.getPassword();
+                phone = user.getPhoneNo();
                 Placename = user.getLocation();
+                Name.setHint(name);
+
+                Email.setHint(email);
+
+                Phone.setHint(phone);
 
 
             }
+
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -88,62 +99,33 @@ public class EditInfo extends AppCompatActivity {
             }
         });
 
-
         Name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Name.setHint(user.getName());
+                    Name.setHint(null);
                 }
             }
         });
-
-
         Email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Email.setHint(user.getEmail());
+                    Email.setHint(null);
                 }
             }
         });
-
-        OldPass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    OldPass.setHint("Enter Old Password");
-                }
-            }
-        });
-
-        Pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    Pass.setHint("Enter New Password");
-                }
-            }
-        });
-
-
-        RePass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    RePass.setHint("Re-Enter New Password");
-                }
-            }
-        });
-
         Phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    Phone.setHint(user.getPhoneNo());
+                    Phone.setHint(null);
                 }
             }
         });
+
+
+
 
 
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
@@ -180,6 +162,8 @@ public class EditInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
               SaveInfo();
 
 
@@ -195,49 +179,81 @@ public class EditInfo extends AppCompatActivity {
     void SaveInfo()
     {
 
-
+        progressDialog.setMessage("Please Wait");
+        progressDialog.show();
         email1=Email.getText().toString().trim();
         name1=Name.getText().toString();
         phone1=Phone.getText().toString();
-        oldpass=OldPass.getText().toString();
-        pass1=Pass.getText().toString().trim();
-        repass1=RePass.getText().toString().trim();
 
         if(!email1.isEmpty())
         {
-            email=email1;
+
+
+            AuthCredential credential= EmailAuthProvider.getCredential(mAuth.getCurrentUser().getEmail(),pass);
+
+            mAuth.getCurrentUser().reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful())
+                    {
+                        //Toast.makeText(getApplicationContext(), "ReAuthenticated Successfully", Toast.LENGTH_LONG).show();
+                        mAuth.fetchProvidersForEmail(email1).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                                    if(task.isSuccessful()) {
+                                        try{
+                                        if (task.getResult().getProviders().size() == 1) {
+                                            Toast.makeText(getApplicationContext(), "Email already in use.Please enter Another one", Toast.LENGTH_LONG).show();
+
+                                        } else if (task.getResult().getProviders().size() == 0) {
+                                            email = email1;
+                                            Toast.makeText(getApplicationContext(), "Email Updated", Toast.LENGTH_LONG).show();
+
+                                            mAuth.getCurrentUser().updateEmail(email)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                //Toast.makeText(getApplicationContext(), "Email Updated", Toast.LENGTH_LONG).show();
+                                                            }
+                                                        }
+                                                    });
+
+                                        }
+                                    }catch (NullPointerException e)
+                                        {
+                                            Toast.makeText(getApplicationContext(), " "+e.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Failed to ReAuthenticate", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            });
         }
         if(!name1.isEmpty())
         {
             name=name1;
+            Toast.makeText(getBaseContext(),"Name updated",Toast.LENGTH_SHORT).show();
         }
         if(!phone1.isEmpty())
         {
             phone=phone1;
+            Toast.makeText(getBaseContext(),"Phone Number updated",Toast.LENGTH_SHORT).show();
         }
         if(Place1!=null && !Place1.isEmpty())
         {
             Placename=Place1;
+            Toast.makeText(getBaseContext(),"Location Updated",Toast.LENGTH_SHORT).show();
         }
-        if(!oldpass.isEmpty()) {
-            if(oldpass.equals(pass)) {
-                if (!pass1.isEmpty()) {
-                    if (!repass1.isEmpty()) {
-                        if (!pass1.equals(repass1)) {
-                            Toast.makeText(getBaseContext(), "Passwords doesnt Match", Toast.LENGTH_SHORT).show();
-                        } else {
-                            pass = pass1;
-                        }
-                    } else {
-                        Toast.makeText(getBaseContext(), "Please Re-enter Password", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-            else
-            {
-                Toast.makeText(getBaseContext(), "Incorrect Password", Toast.LENGTH_SHORT).show();
-            }
-        }
+
+        progressDialog.dismiss();
+
         FirebaseUser user = mAuth.getCurrentUser();
         String userid=user.getUid();
         // Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
@@ -248,10 +264,10 @@ public class EditInfo extends AppCompatActivity {
 
 
 
-        Intent c=new Intent(getApplicationContext(),ClinicService.class);
-        Toast.makeText(getBaseContext(),"Info Saved",Toast.LENGTH_SHORT).show();
-        progressDialog.dismiss();
-        startActivity(c);
+        Intent c=new Intent(getApplicationContext(),EditInfo.class);
+
+
+       // startActivity(c);
 
 
     }
