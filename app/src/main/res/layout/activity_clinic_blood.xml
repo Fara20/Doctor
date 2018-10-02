@@ -5,244 +5,296 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#eeebeb"
     tools:context=".ClinicBlood">
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/bb"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
 
+
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="A+"/>
+        android:text="Blood Bank"
+        android:fontFamily="monospace"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#b71c1c"
+        android:textSize="25dp"/>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+       >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="A+  :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
+
+
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/aplus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="B+"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="   bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
+    </LinearLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Available:" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="enter"
-                android:id="@+id/bplus"
-                android:inputType="number" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bags" />
-
-
-        </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="AB+"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="B+  :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter"
+            android:textSize="13dp"
+            android:id="@+id/bplus"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AB+:"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/abplus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text="  bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="O+"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="O+   :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/oplus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text=" bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="A-"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
-
+            android:text="A-     :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/aminus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text=" bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="B-"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
+        android:orientation="horizontal"
+        android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="B-      :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
+
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/bminus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text=" bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="AB-"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="AB-   :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/abminus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text=" bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="O-"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Available:" />
+            android:text="O-      :"
+            android:drawableLeft="@drawable/drop2"
+            android:textColor="#b71c1c"
+            android:textSize="19dp"/>
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="enter"
+            android:textSize="13dp"
             android:id="@+id/ominus"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bags" />
+            android:text="bags"
+            android:textColor="#b71c1c"
+            android:textSize="13dp"/>
 
 
     </LinearLayout>
@@ -253,5 +305,8 @@
         android:text="Insert"
         android:layout_gravity="center"
         android:gravity="center"
-        android:id="@+id/btn"/>
+        android:id="@+id/btn"
+        android:layout_marginTop="25sp"
+        android:textColor="#b71c1c"
+        android:textSize="15dp"/>
 </LinearLayout>
