@@ -8,13 +8,9 @@
         android:icon="@drawable/users"
         android:title="Profile"
         />
-    <item android:id="@+id/notifications"
+    <item android:id="@+id/editInfo"
         android:icon="@drawable/resume"
         android:title="Edit Account"/>
-    <item android:id="@+id/Change"
-        android:icon="@drawable/padlock"
-        android:title="Change Password"/>
-
     <item android:id="@+id/Sign_Out"
         android:icon="@drawable/signout"
         android:title="Sign Out"/>
