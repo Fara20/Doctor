@@ -60,7 +60,7 @@
                     android:gravity="center"
                     android:inputType="textPersonName"
                     android:textColor="#b71c1c"
-                    android:textColorHint="#b71c1c"
+                    android:textColorHint="#a58d8d"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                     android:gravity="center"
 
                     android:inputType="textEmailAddress"
-                    android:textColorHint="#b71c1c"
+                    android:textColorHint="#a58d8d"
                     android:textColor="#b71c1c"
                     android:textSize="25dp"
                     android:textStyle="bold" />
@@ -115,7 +115,7 @@
                     android:gravity="center"
                     android:textColor="#b71c1c"
                     android:inputType="number"
-                    android:textColorHint="#b71c1c"
+                    android:textColorHint="#a58d8d"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
