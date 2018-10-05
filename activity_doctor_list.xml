@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eeebeb"
+    tools:context=".DoctorList">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView6" android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:id="@+id/login_title"
+                    android:layout_width="112dp"
+                    android:layout_height="95dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/profileshape"
+                    android:elevation="4dp"
+                    android:fontFamily="cursive"
+                    android:gravity="center_horizontal"
+                    android:src="@drawable/patient" />
+            </RelativeLayout>
+
+
+            <AutoCompleteTextView
+                android:id="@+id/List"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginBottom="20dp"
+                android:drawableLeft="@drawable/places_ic_search"
+                android:hint="Select A Doctor"
+                android:textColor="#b71c1c"
+                android:textSize="20dp" />
+
+            <ListView
+                android:id="@+id/RetriveInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#b71c1c">
+
+            </ListView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>
