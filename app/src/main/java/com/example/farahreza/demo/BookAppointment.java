@@ -9,93 +9,83 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookAppointment extends AppCompatActivity {
 
-    Button BookConfirm;
-    Spinner spinner;
-
+    String Placename,type;
+    Button sbmt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
-        addItemsOnSpinner2();
-        addListenerOnButton();
+        sbmt=findViewById(R.id.btnSubmit1);
+        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
 
-    }
-    public void addItemsOnSpinner2(){
+        autocompleteFragment.setHint("Search  Location");
 
-        spinner = (Spinner) findViewById(R.id.spinner2);
-        List<String> list = new ArrayList<String>();
-        list.add("Select a District");
-        list.add("Dhaka");
-        list.add("Chittagong");
-        list.add("Rajshahi");
-        list.add("Sylhet");
-        list.add("Comilla");
-        list.add("Barishal");
-        list.add("Khulna");
-        list.add("Mymensingh");
-        list.add("Rangpur");
+        AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
+                .setCountry("BD")
+                .build();
+
+        autocompleteFragment.setFilter(typeFilter);
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.my_spinner, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-    }
-
-    public void addListenerOnButton(){
-        spinner = (Spinner) findViewById(R.id.spinner2);
-        BookConfirm = (Button) findViewById(R.id.btnSubmit);
-
-
-
-
-
-
-
-        BookConfirm.setOnClickListener(new View.OnClickListener() {
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
-            public void onClick(View view) {
-
-                final Intent g =new Intent(getApplicationContext(),ClinicLoaction.class);
-                if(String.valueOf(spinner.getSelectedItem())=="Dhaka")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Rajshahi")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Chittagong")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Khulna")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Comilla")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Barishal")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Sylhet")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Mymensingh")
-                    startActivity(g);
-                else if(String.valueOf(spinner.getSelectedItem())=="Rangpur")
-                    startActivity(g);
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                // Log.i(TAG, "Place: " + place.getName());
+                Placename=place.getName().toString();
 
 
+                //Toast.makeText(getApplicationContext()," "+Placename,Toast.LENGTH_LONG).show();
 
-                else
-                    Toast.makeText(getApplicationContext(),"Please Select an Option", Toast.LENGTH_LONG).show();
+            }
 
-
-
-
-
-
-
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                //Log.i(TAG, "An error occurred: " + status);
             }
         });
 
+
+        sbmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(!Placename.isEmpty())
+                {
+                   // Intent i=getIntent();
+                   // final String C=i.getStringExtra("clinic");
+
+                    final  Intent c=new Intent(getApplicationContext(),DocLocList.class);
+                    //c.putExtra("clinic",C);
+                    c.putExtra("place",Placename);
+                    startActivity(c);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please Select a Location",Toast.LENGTH_LONG).show();
+                }
+            }
+
+        });
+
+
+
     }
 
-}
+    }
+
