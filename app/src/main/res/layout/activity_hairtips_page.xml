@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeebeb"
+    tools:context=".HairtipsPage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageButton
+                android:id="@+id/user_profile_photo"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_below="@+id/login_title"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/profileshape"
+                android:elevation="4dp"
+                android:src="@drawable/hairrr" />
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="45dp"
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Use Mild Shampoo"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eggs Are The Best Conditioners"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Lemon Juice And Olive Oil For Itchy Scalp"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Fatty Fish"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Vegetables and Fruits"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Honey And Olive Oil For Damaged Hair"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Avocado For Frizzy Hair"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Stay Away From Pollution"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Apply Extra Virgin Coconut Oil"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Apply AloeVera Juice On Hair For HairFall"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Apply Henna For HairFall Or Graying Hair"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Beat The Stress"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Have Vitamin C More"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Use Extra Virgin Olive Oil"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Use Yogurt As HairPack"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>
