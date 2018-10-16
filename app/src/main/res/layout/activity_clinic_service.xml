@@ -69,7 +69,7 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
-                    android:id="@+id/edit"
+                    android:id="@+id/bloodbank"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
 
@@ -195,7 +195,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Ambulence Service"
+                            android:text="Ambulance Service"
                             android:textColor="#fff"
                             android:textStyle="bold" />
 
@@ -219,7 +219,48 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/doclist"
+                    android:id="@+id/plist"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="#990202">
+
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/verification"
+                            android:text="Health"
+
+                            />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#fff"
+                            android:text="Patient List"
+                            android:textStyle="bold" />
+
+
+
+
+
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/docList"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
 
@@ -238,7 +279,7 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:src="@drawable/list"
-                            android:text="Health"
+
 
                             />
 
@@ -249,47 +290,6 @@
                             android:layout_marginTop="10dp"
                             android:textColor="#fff"
                             android:text="Doctor's List"
-                            android:textStyle="bold" />
-
-
-
-
-
-
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cancelappointment"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:background="#990202">
-
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/ic_cancel_black_24dp"
-
-
-                            />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textColor="#fff"
-                            android:text="Cancel Appointment"
                             android:textStyle="bold" />
 
 
@@ -327,7 +327,7 @@
                     android:background="@drawable/circle"
                     android:drawableTop="@drawable/error"
                     android:paddingTop="20dp"
-                    android:text="Contact"
+                    android:text="Cancel"
                     android:textColor="#fff" />
 
 
@@ -368,5 +368,6 @@
 
 
 </android.support.v4.widget.DrawerLayout>
+
 
 
