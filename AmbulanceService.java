@@ -52,22 +52,28 @@ EditText vecname,contact,email;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dRef= FirebaseDatabase.getInstance().getReference("Ambulance");
 
                 strname=vecname.getText().toString().trim();
                 strcontact=contact.getText().toString().trim();
-                stremail=email.getText().toString().trim();
-                type="24 hours";
+
 
                 FirebaseUser user=mAuth.getCurrentUser();
                 String userid=user.getUid();
 
+                if(strname.isEmpty()||strcontact.isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(), "Field Empty", Toast.LENGTH_SHORT).show();
+                }
 
 
+                   else {
 
-                Ambulance newuser=new Ambulance(strname,strcontact,stremail,type);
-                dRef.child(userid).setValue(newuser);
+                    Ambulance newuser = new Ambulance(strname, strcontact);
+                    dRef.child(strname).setValue(newuser);
 
-                Toast.makeText(getApplicationContext(), "Ambulance Inserted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Ambulance Inserted successfully!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
