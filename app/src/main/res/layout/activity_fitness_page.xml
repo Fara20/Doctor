@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeebeb"
+    tools:context=".FitnessPage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageButton
+                android:id="@+id/user_profile_photo"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_below="@+id/login_title"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/profileshape"
+                android:elevation="4dp"
+                android:src="@drawable/diettt" />
+
+
+
+                <Button
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="45dp"
+                    android:background="#b71c1c"
+                    android:gravity="center"
+                    android:textSize="19sp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Don't Drink Sugar Calories"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Nuts"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Avoid Junk Food Eat Homemade Food"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Fatty Fish"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Vegetables and Fruits"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Do Some Cardio, or Just Walk More"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Eat Eggs, and Don't Throw Away The Yolk"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Don't go on a Diet"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="If You Have Excess Belly Fat, Get Rid of it"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Track Your Food Intake Every Now and Then"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Use Plenty of Herbs and Spices"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Lift Heavy Things"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Don't Eat a Lot of Refined Carbohydrates"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Minimize Your Intake of Added Sugars"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Don't Smoke or do Drugs"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Use Extra Virgin Olive Oil"
+                android:textAllCaps="false"
+                android:textColor="#b71c1c"
+                android:textStyle="bold" />
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:background="#b71c1c"
+                android:gravity="center"
+                android:textSize="19sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Take Care of Your Relationships"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

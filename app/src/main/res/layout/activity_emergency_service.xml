@@ -8,14 +8,6 @@
     android:background="#eeebeb"
     tools:context=".EmergencyService">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView6" android:fillViewport="true">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -57,8 +49,6 @@
 
             </ListView>
 
-        </LinearLayout>
-    </ScrollView>
 
 
 

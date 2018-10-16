@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeebeb"
+    tools:context=".FirstaidPage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageButton
+                android:id="@+id/user_profile_photo"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_below="@+id/login_title"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/profileshape"
+                android:elevation="4dp"
+                android:src="@drawable/tips" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/holo_red_dark">
+
+
+                <Button
+                    android:id="@+id/vecname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:width="150dp"
+                    android:height="40dp"
+                    android:backgroundTint="#b71c1c"
+                    android:text="Tips for CPR"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:text="1. Do not check a pulse, simply check breathing"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="10sp"
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:textSize="18dp"
+                android:text="2. Move the patient onto a flat surface."
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="10sp"
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="3. Call an ambulance and start compression at a rate of 120 per minutes."
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:width="150dp"
+                    android:height="40dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-condensed"
+                    android:backgroundTint="#b71c1c"
+                    android:textColor="@android:color/white"
+                    android:text="Tips for Cuts and Grazes"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="1. Use direct pressure to stop the bleeding."
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="18dp"
+                android:text="2. If the bleeding continues after 10 minutes of pressure, seek additional medical attention."
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="10sp"
+                android:text="3. Clean the graze with saline or water.Use a wound wipe like iodine to stop infection"
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:fontFamily="sans-serif-condensed"
+                    android:width="150dp"
+                    android:height="40dp"
+                    android:gravity="center"
+                    android:backgroundTint="#b71c1c"
+                    android:textColor="@android:color/white"
+                    android:text="Tips for Burns"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="1. Cool the burn with water 20 minutes."
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:textSize="18dp"
+                android:layout_marginLeft="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="2. Use cling wrap to cover the burn after cooling."
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/holo_red_dark">
+
+
+                <Button
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:width="150dp"
+                    android:height="40dp"
+                    android:backgroundTint="#b71c1c"
+                    android:textColor="@android:color/white"
+                    android:text="Tips for Sprains"
+                    android:fontFamily="sans-serif-condensed"
+
+
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:text="1. Rest the patient."
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="10sp"
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:textSize="18dp"
+                android:text="2. Use ice on the area for 20 minutes."
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="10sp"
+                android:textColor="#b71c1c"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="3. Apply pressure on the area with a compression bandage."
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="10sp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="4. Elevate the injured area."
+                android:textColor="#b71c1c"
+                android:layout_marginLeft="10sp"
+                android:textStyle="bold"/>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>
