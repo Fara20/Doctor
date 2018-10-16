@@ -8,6 +8,10 @@ public class BloodBankInfo {
 
     }
 
+    public BloodBankInfo(String aplus) {
+        this.aplus = aplus;
+    }
+
     public BloodBankInfo(String aplus, String bplus, String abplus, String oplus, String aminus, String bminus, String abminus, String ominus, String type) {
         this.aplus = aplus;
         this.bplus = bplus;

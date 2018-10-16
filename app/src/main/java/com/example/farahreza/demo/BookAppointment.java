@@ -21,6 +21,7 @@ import java.util.List;
 public class BookAppointment extends AppCompatActivity {
 
     String Placename,type;
+    int flag=0;
     Button sbmt;
 
     @Override
@@ -47,6 +48,7 @@ public class BookAppointment extends AppCompatActivity {
                 // TODO: Get info about the selected place.
                 // Log.i(TAG, "Place: " + place.getName());
                 Placename=place.getName().toString();
+                flag=1;
 
 
                 //Toast.makeText(getApplicationContext()," "+Placename,Toast.LENGTH_LONG).show();
@@ -65,19 +67,21 @@ public class BookAppointment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(!Placename.isEmpty())
+                if(flag==0)
                 {
                    // Intent i=getIntent();
                    // final String C=i.getStringExtra("clinic");
+
+
+                    Toast.makeText(getApplicationContext(),"Please Select a Location",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
 
                     final  Intent c=new Intent(getApplicationContext(),DocLocList.class);
                     //c.putExtra("clinic",C);
                     c.putExtra("place",Placename);
                     startActivity(c);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Please Select a Location",Toast.LENGTH_LONG).show();
                 }
             }
 

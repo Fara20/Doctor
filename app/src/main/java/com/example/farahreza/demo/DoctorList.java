@@ -56,6 +56,26 @@ public class DoctorList extends AppCompatActivity {
 
                 clinicname=user.getName();
 
+                dr=FirebaseDatabase.getInstance().getReference("DoctorInfo").child(clinicname);
+
+                dr.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds:dataSnapshot.getChildren())
+                        {
+                            DoctorInfo user=ds.getValue(DoctorInfo.class);
+                            dctrlst.add(user);
+                        }
+                        studentAdapter adapter=new studentAdapter(DoctorList.this,dctrlst);
+                        lv.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -64,24 +84,8 @@ public class DoctorList extends AppCompatActivity {
             }
         });
 
-        dr=FirebaseDatabase.getInstance().getReference(clinicname);
 
-        dr.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds:dataSnapshot.getChildren())
-                {
-                    DoctorInfo user=ds.getValue(DoctorInfo.class);
-                    dctrlst.add(user);
-                }
-                studentAdapter adapter=new studentAdapter(DoctorList.this,dctrlst);
-                lv.setAdapter(adapter);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
     }
 }

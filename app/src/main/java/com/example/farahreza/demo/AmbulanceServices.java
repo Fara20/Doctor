@@ -3,6 +3,7 @@ package com.example.farahreza.demo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
@@ -49,13 +50,35 @@ public class AmbulanceServices extends AppCompatActivity {
         dRef= FirebaseDatabase.getInstance().getReference("Ambulance");
         session=new Session(this);
 
+        lv.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Disallow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        // Allow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                // Handle ListView touch events.
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
 
         dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds:dataSnapshot.getChildren())
                 {
-                   Ambulance user=ds.getValue(Ambulance.class);
+                    Ambulance user=ds.getValue(Ambulance.class);
                     emerlst.add(user);
                 }
                 AmbulenceAdapter adapter=new AmbulenceAdapter(AmbulanceServices.this,emerlst);
@@ -89,14 +112,13 @@ public class AmbulanceServices extends AppCompatActivity {
 
             }
         });
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String text=lv.getItemAtPosition(i).toString();
                 Toast.makeText(AmbulanceServices.this,text,Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
 
     }

@@ -2,6 +2,7 @@ package com.example.farahreza.demo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ EditText vecname,contact,email;
     Session session;
     String type="Ambulance";
     Button btn;
-    String strname,strcontact,stremail;
+    String strname,strcontact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,19 @@ EditText vecname,contact,email;
 
                 strname=vecname.getText().toString().trim();
                 strcontact=contact.getText().toString().trim();
+
+                if (TextUtils.isEmpty(strname)){
+
+                    Toast.makeText(getApplicationContext(),"Please enter name",Toast.LENGTH_LONG).show();
+                    //stopping from further execution of the function.
+                    return;
+                }
+                if (TextUtils.isEmpty(strcontact)){
+
+                    Toast.makeText(getApplicationContext(),"Please enter contact",Toast.LENGTH_LONG).show();
+                    //stopping from further execution of the function.
+                    return;
+                }
 
 
                 FirebaseUser user=mAuth.getCurrentUser();
